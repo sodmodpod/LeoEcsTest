@@ -8,9 +8,9 @@ using UnityTemplateProjects.Systems;
 
 namespace Systems
 {
-    public class SomeValueShowSystem : BaseEcsSystem<SomeValueComponent>
+    public class SomeValueShowFilterSystem : BaseEcsFilterSystem<SomeValueComponent>
     {
-        protected override void Execute(EcsFilter entities, Dictionary<Type, IEcsPool> pools)
+        protected override void Execute(EcsFilter entities, Dictionary<Type, IEcsPool> pools, IEcsSystems systems, EcsWorld ecsWorld)
         {
             foreach (var entity in entities)
             {

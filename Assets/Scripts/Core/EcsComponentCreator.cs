@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Leopotam.EcsLite;
+using Server.Components;
 using UnityEngine;
 using Zenject;
 
