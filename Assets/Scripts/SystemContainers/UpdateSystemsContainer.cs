@@ -4,7 +4,7 @@ namespace UnityTemplateProjects.Installers
 {
     public class UpdateSystemsContainer : BaseSystemsContainer
     {
-        public UpdateSystemsContainer(IEcsSystem[] systems, bool isGlobal) : base(systems, isGlobal)
+        public UpdateSystemsContainer(IEcsSystem[] systems) : base(systems)
         {
         }
 

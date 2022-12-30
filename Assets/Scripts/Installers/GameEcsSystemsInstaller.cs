@@ -1,9 +1,4 @@
 using Client.Systems;
-using Systems;
-using Leopotam.EcsLite.UnityEditor;
-using Server.Components;
-using UnityEngine.PlayerLoop;
-using UnityTemplateProjects.Systems;
 
 namespace UnityTemplateProjects.Installers
 {
@@ -11,24 +6,26 @@ namespace UnityTemplateProjects.Installers
     {
         protected override void OnInstallBindings()
         {
+            Container.BindSystem<VelocityResetSystem, UpdateSystemsContainer>();
+            Container.BindSystem<PositionInitSystem, UpdateSystemsContainer>();
+            Container.BindSystem<DestinationPositionInitSystem, UpdateSystemsContainer>();
+            Container.BindSystem<RotationInitSystem, UpdateSystemsContainer>();
             
-        }
-
-        private void ServerBindings()
-        {
-            Container.BindSystem<InputToPlayerLinkSystem, UpdateSystemsContainer>();
             Container.BindSystem<ButtonToDoorLinkSystem, UpdateSystemsContainer>();
-            
-            Container.BindSystem<DestinationSetSystem, UpdateSystemsContainer>();
+
+            Container.BindSystem<SetDestinationSystem, UpdateSystemsContainer>();
+            Container.BindSystem<SetHasToMoveSystem, UpdateSystemsContainer>();
             Container.BindSystem<MoveSystem, UpdateSystemsContainer>();
             Container.BindSystem<ButtonChangeStateSystem, UpdateSystemsContainer>();
             Container.BindSystem<DoorChangeStateSystem, UpdateSystemsContainer>();
             Container.BindSystem<DoorOpeningSystem, UpdateSystemsContainer>();
-        }
-        
-        private void ClientBindings()
-        {
-            Container.BindSystem<PositionRotationInitSystem, UpdateSystemsContainer>();
+            
+            Container.BindSystem<AnimatorSystem, UpdateSystemsContainer>();
+            
+            Container.BindSystem<TransformPositionApplySystem, UpdateSystemsContainer>();
+            Container.BindSystem<TransformRotationApplySystem, UpdateSystemsContainer>();
+            
+            
         }
     }
 }

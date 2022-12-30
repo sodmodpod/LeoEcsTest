@@ -10,7 +10,7 @@ namespace UnityTemplateProjects.Systems
         private EcsWorld _ecsWorld;
         public void Init(IEcsSystems systems)
         {
-            _ecsWorld = systems.GetWorld(GetWorldName());
+            _ecsWorld = systems.GetWorld();
             foreach (var pool in GetPools(systems.GetWorld()))
             {
                 Pools.Add(pool.GetComponentType(), pool);
@@ -22,11 +22,6 @@ namespace UnityTemplateProjects.Systems
         public void Run(IEcsSystems systems)
         {
             OnRun(systems, _ecsWorld);
-        }
-        
-        protected virtual string GetWorldName()
-        {
-            return null;
         }
         
         public abstract IEnumerable<IEcsPool> GetPools(EcsWorld ecsWorld);

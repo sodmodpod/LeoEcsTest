@@ -15,10 +15,6 @@ namespace Client.Systems
             yield return ecsWorld.GetPool<State>();
         }
 
-        protected override void OnRun(IEcsSystems systems, EcsWorld ecsWorld)
-        {
-        }
-
         protected override void Execute(EcsFilter entities, Dictionary<Type, IEcsPool> pools, IEcsSystems systems, EcsWorld ecsWorld)
         {
             foreach (var entity in entities)
@@ -28,7 +24,7 @@ namespace Client.Systems
 
                 if (buttonEntityContainer.Value.Unpack(ecsWorld, out var buttonEntity))
                 {
-                    if (pools.HasComponents(buttonEntity, typeof(State), typeof(Position)))
+                    if (pools.HasComponent<State>(buttonEntity))
                     {
                         var buttonState = pools.GetComponent<State>(buttonEntity);
                         state.Value = buttonState.Value;

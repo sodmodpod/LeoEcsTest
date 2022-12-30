@@ -6,12 +6,10 @@ namespace UnityTemplateProjects.Installers
 {
     public abstract class BaseSystemsContainer
     {
-        public bool IsGlobal { get; }
         public abstract SystemContainerType Type { get; }
 
-        public BaseSystemsContainer(IEcsSystem[] systems, bool isGlobal)
+        public BaseSystemsContainer(IEcsSystem[] systems)
         {
-            IsGlobal = isGlobal;
             _systems.AddRange(systems);
         }
         

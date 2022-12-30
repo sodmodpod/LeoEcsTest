@@ -15,6 +15,7 @@ namespace Client.Systems
         {
             yield return ecsWorld.GetPool<Position>();
             yield return ecsWorld.GetPool<State>();
+            yield return ecsWorld.GetPool<Radius>();
         }
 
         protected override IEnumerable<EcsFilter> InitFilters(EcsWorld ecsWorld)
